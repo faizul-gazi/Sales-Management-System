@@ -144,12 +144,4 @@ This project analyzes the existing gadget website's problems and implements solu
 - QA Engineers
 - Project Manager
 
-## 📞 Support
-
-For technical support or queries:
-- Email: support@gadgetstore.com
-- Help Center: Available in admin panel
-- Customer Service: 24/7 chat support
-
----
-*This project is developed as part of the System Analysis and Design course, focusing on improving an existing gadget e-commerce website*
+m Analysis and Design course, focusing on improving an existing gadget e-commerce website*
