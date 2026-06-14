@@ -11,6 +11,11 @@ if (!uri) {
 let client: MongoClient;
 let clientPromise: Promise<MongoClient>;
 
+const options = {
+  serverSelectionTimeoutMS: 1000, // Fail fast in 1 second if MongoDB is offline
+  connectTimeoutMS: 1000,
+};
+
 if (process.env.NODE_ENV === 'development') {
   // In development mode, use a global variable so that the value
   // is preserved across module reloads caused by HMR (Hot Module Replacement).
@@ -19,13 +24,13 @@ if (process.env.NODE_ENV === 'development') {
   };
 
   if (!globalWithMongo._mongoClientPromise) {
-    client = new MongoClient(uri || 'mongodb://localhost:27017/tryusbd');
+    client = new MongoClient(uri || 'mongodb://localhost:27017/tryusbd', options);
     globalWithMongo._mongoClientPromise = client.connect();
   }
   clientPromise = globalWithMongo._mongoClientPromise;
 } else {
   // In production mode, it's best to not use a global variable.
-  client = new MongoClient(uri || 'mongodb://localhost:27017/tryusbd');
+  client = new MongoClient(uri || 'mongodb://localhost:27017/tryusbd', options);
   clientPromise = client.connect();
 }
 
