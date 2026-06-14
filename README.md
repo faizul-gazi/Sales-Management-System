@@ -109,4 +109,4 @@ Log in at [http://localhost:3000/admin/login](http://localhost:3000/admin/login)
 ---
 
 ## 👨‍💻 Creator
-**Gazi Faizul Islam** — *All Rights Reserved.*
+**Gazi Faizul Islam** — *All Rights Reserved*
