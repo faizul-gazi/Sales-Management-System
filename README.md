@@ -1,147 +1,36 @@
-# Gadget E-commerce System Improvement Project
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-A comprehensive redesign and improvement of an existing gadget e-commerce website, developed as part of the System Analysis and Design course. This project focuses on enhancing user experience and solving identified system problems.
+## Getting Started
 
-## 🎓 Project Overview
+First, run the development server:
 
-This project analyzes the existing gadget website's problems and implements solutions through system analysis and design principles to create a more efficient, user-friendly e-commerce platform.
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-## 🔍 Problem Analysis
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-### Identified Issues
-- Complex navigation system
-- Slow loading times
-- Confusing checkout process
-- Limited search functionality
-- Poor mobile responsiveness
-- Inadequate product filtering
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## 🚀 Improved Features
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-### For Customers
-- Streamlined product search and filtering
-- Enhanced product categorization
-- User-friendly shopping cart
-- Simplified checkout process
-- Product comparison tool
-- Wishlist functionality
-- Product reviews and ratings
-- Mobile-responsive design
+## Learn More
 
-### For Administrators
-- Comprehensive dashboard
-- Inventory management
-- Order processing system
-- Customer data management
-- Sales analytics
-- Content management system
-- Product catalog management
+To learn more about Next.js, take a look at the following resources:
 
-## 🛠️ Tech Stack
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-- **Frontend:**
-  - React.js
-  - Material-UI
-  - Redux (State management)
-  - Responsive Design
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-- **Backend:**
-  - Node.js
-  - Express.js
-  - MongoDB
-  - JWT Authentication
+## Deploy on Vercel
 
-## 💡 Key System Improvements
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-1. **User Interface**
-   - Intuitive navigation
-   - Clean, modern design
-   - Quick access categories
-   - Advanced search features
-
-2. **Shopping Experience**
-   - Smart product recommendations
-   - Real-time stock updates
-   - Multiple payment options
-   - Order tracking system
-
-3. **Admin Controls**
-   - Easy product management
-   - Order processing workflow
-   - Customer support system
-   - Analytics dashboard
-
-4. **Performance**
-   - Optimized loading speed
-   - Efficient database queries
-   - Image optimization
-   - Caching system
-
-## 👥 User Roles
-
-### Customers
-- Browse products by category
-- Advanced search and filtering
-- Secure checkout process
-- Order tracking
-- Review management
-- Account management
-
-### Administrators
-- Product management
-- Order processing
-- Customer management
-- Inventory control
-- Analytics monitoring
-- Content management
-
-## 🎯 Project Goals
-
-1. Improve user experience
-2. Increase website efficiency
-3. Enhance admin controls
-4. Boost sales conversion
-5. Reduce customer support issues
-
-## 📊 System Analysis Deliverables
-
-- Problem Analysis Document
-- System Requirements Specification
-- User Interface Design
-- Database Design
-- Testing Documentation
-- Implementation Plan
-
-## 🔒 Security Features
-
-- Secure payment processing
-- Encrypted user data
-- Safe authentication
-- Regular security updates
-- Backup systems
-
-## 📱 Responsive Design
-
-- Mobile-first approach
-- Tablet optimization
-- Desktop compatibility
-- Cross-browser support
-
-## 🔄 Future Enhancements
-
-1. AI-powered product recommendations
-2. Advanced analytics dashboard
-3. Mobile application
-4. Customer loyalty program
-5. Integration with multiple payment gateways
-
-## 👨‍💻 Development Team
-
-- System Analysts
-- UI/UX Designers
-- Frontend Developers
-- Backend Developers
-- QA Engineers
-- Project Manager
-
-m Analysis and Design course, focusing on improving an existing gadget e-commerce website*
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
