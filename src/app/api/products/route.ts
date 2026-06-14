@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { getDb } from '@/lib/mongodb';
-import { seedProducts } from '@/lib/seed';
+import { seedProducts, productsData } from '@/lib/seed';
 
 export async function GET() {
   try {
@@ -11,7 +11,7 @@ export async function GET() {
     const products = await db.collection('products').find({}).toArray();
     return NextResponse.json(products);
   } catch (error: any) {
-    console.error('Error fetching products:', error);
-    return NextResponse.json({ error: 'Failed to fetch products: ' + error.message }, { status: 500 });
+    console.warn('MongoDB connection unavailable. Falling back to local static catalog. Error:', error.message);
+    return NextResponse.json(productsData);
   }
 }
