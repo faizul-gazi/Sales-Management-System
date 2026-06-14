@@ -49,6 +49,8 @@ interface AppContextType {
   isInWishlist: (productId: number) => boolean;
   showToast: (message: string, type?: Toast['type']) => void;
   removeToast: (id: number) => void;
+  theme: 'dark' | 'light';
+  toggleTheme: () => void;
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -57,6 +59,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [wishlist, setWishlist] = useState<Product[]>([]);
   const [toasts, setToasts] = useState<Toast[]>([]);
+  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
   const [mounted, setMounted] = useState(false);
 
   // Load initial state from local storage on mount
@@ -76,6 +79,13 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       } catch (e) {
         console.error('Failed to parse wishlist local storage:', e);
       }
+    }
+    const savedTheme = localStorage.getItem('theme') as 'dark' | 'light';
+    if (savedTheme) {
+      setTheme(savedTheme);
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    } else {
+      document.documentElement.setAttribute('data-theme', 'dark');
     }
     setMounted(true);
   }, []);
@@ -156,6 +166,13 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     return wishlist.some((item) => item.id === productId);
   };
 
+  const toggleTheme = () => {
+    const nextTheme = theme === 'dark' ? 'light' : 'dark';
+    setTheme(nextTheme);
+    localStorage.setItem('theme', nextTheme);
+    document.documentElement.setAttribute('data-theme', nextTheme);
+  };
+
   // Prevent hydration mismatch
   if (!mounted) {
     return null;
@@ -175,6 +192,8 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         isInWishlist,
         showToast,
         removeToast,
+        theme,
+        toggleTheme,
       }}
     >
       {children}

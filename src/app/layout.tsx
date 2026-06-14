@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full antialiased scroll-smooth">
-      <body className="min-h-full flex flex-col bg-[#090a0f] text-[#f3f4f6]">
+      <body className="min-h-full flex flex-col bg-background text-foreground transition-colors duration-300">
         <AppProvider>
           <Navbar />
           <ToastContainer />
