@@ -1,110 +1,112 @@
-# TryUsBD — Premium Gadget Store
+# 🛍️ TryUsBD — Premium Gadget Store
 
-TryUsBD is a modern, high-fidelity gadget e-commerce platform built as a Single Page Application (SPA) using **Next.js (App Router)**, **TypeScript**, **Tailwind CSS v4**, and **MongoDB Atlas** (with an automatic local file database fallback).
+[![Next.js](https://img.shields.io/badge/Next.js-16.2.9-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org)
+[![React](https://img.shields.io/badge/React-19.0.0-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://typescriptlang.org)
+[![Tailwind CSS v4](https://img.shields.io/badge/Tailwind_CSS_v4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
+[![MongoDB](https://img.shields.io/badge/MongoDB_Atlas-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://mongodb.com)
 
-This project features a glassmorphic dark-tech design system, customer storefront catalog, wishlist drawer, real-time cart counts, checkout processing, and an administrator dashboard with sales analytics.
+A premium, high-fidelity gadget e-commerce storefront and administration panel designed with a state-of-the-art **glassmorphic UI**, supporting seamless **dark and light themes**, persistent client-side states, and automated database fail-safe fallbacks.
 
 ---
 
-## 🚀 Key Features
+## 🌟 Key Highlights
 
-### For Customers
-- **Curated Storefront**: Sleek slides and sections for *New Arrivals*, *Upcoming releases*, and *Top Rated* items.
-- **Dynamic Catalog Filters**: Live search as you type, multi-select checkboxes for categories and brands, and price range filters.
-- **Interactive Specs Modal**: Centered modal overlay listing item colors, connectivity, battery, warranty specs, and verified user reviews.
-- **Wishlist Sync**: Persistent wishlist collection matching user interest.
-- **Checkout Form**: Detailed validation fields for shipping location charges (Dhaka inside ৳60 vs outside ৳110) and cash on delivery submission.
+*   **Premium Interactive Storefront**: Fully-featured catalog with instant filters, real-time live search, interactive specs drawers, persistent shopping cart, and custom wishlist syncing.
+*   **Dual Light & Dark Themes**: Hand-crafted theme switcher that transitions colors, layouts, buttons, and panels instantly between a sleek tech-dark style and a clean, high-contrast light mode.
+*   **Admin Dashboard Console**: Real-time sales analytics including monthly revenue timelines, regional distribution metrics, messages logs, and simple single-click order fulfillment.
+*   **Robust Smart-Fallback Engine**: Auto-seeds 22 pre-configured catalog products on first load, and falls back to an offline JSON database (`src/data/local_db.json`) instantly if MongoDB is unavailable.
 
-### For Administrators
-- **Console Analytics**: Stat blocks representing total order counts, net earnings (৳), pending queues, and completions.
-- **Visual Chart Widgets**: SVG-drawn monthly transaction bar charts and delivery shipping regional gauges.
-- **Orders Manager**: Searchable orders list with status indicators and an option to mark orders completed.
-- **Message Logs**: Feeds displaying name, telephone, email logs from user contacts.
+---
+
+## 🚀 Storefront Features
+
+### 🛒 Customer Storefront
+*   **Curated Landing Page**: Showcases sliding highlights for *New Arrivals*, *Upcoming releases*, and *Top Rated* gadgets.
+*   **Live Search & Dynamic Filters**: Live search query indexing, multi-select checkboxes for categories/brands, and interactive price range sliders.
+*   **High-Fidelity Specs Drawer**: Centered overlay displaying precise dimensions, battery life, connectivity ports, warranty details, and user reviews.
+*   **Responsive Checkout Flow**: Interactive cart drawer syncing shipping charges based on location (Inside Dhaka: ৳60 / Outside Dhaka: ৳110) with Cash on Delivery integration.
+
+### 📊 Admin Console Dashboard
+*   **Live Analytics KPI Cards**: Highlights key statistics including total orders, total revenue (৳), pending queue count, and completed transactions.
+*   **Dynamic Visual Charts**: Clean custom-rendered SVG timeline graph representing earnings growth and regional delivery gauges.
+*   **Order Manager Table**: Interactive logs featuring order searches, status badges, and single-click fulfillment buttons.
+*   **Messages Feed**: Dedicated inbox logging customer emails, phone numbers, and messages submitted via the Contact portal.
 
 ---
 
 ## 🛠️ Technology Stack
 
-- **Frontend**: Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS v4, Lucide React Icons.
-- **Backend & Database**: Next.js Route Handlers (APIs), MongoDB Node Driver.
-- **Fallback Architecture**: File-based database engine (`src/data/local_db.json`) for offline runtime.
+| Layer | Technology | Description |
+| :--- | :--- | :--- |
+| **Frontend** | React 19, Next.js 16 (App Router), TypeScript | Responsive UI structure & fast client hydration |
+| **Styling** | Tailwind CSS v4 | Curated glassmorphism, responsive utilities, HSL themes |
+| **Icons** | Lucide React | High-quality minimalist stroke SVG icons |
+| **Database** | MongoDB Atlas Node Driver | Enterprise-grade cloud data layer |
+| **Database Fallback** | Local Node File System Engine | JSON-based storage engine for offline environments |
 
 ---
 
-## 💡 Smart Fallback System
-To prevent setup hurdles, **TryUsBD** implements a fail-fast local database fallback:
-1. If no `MONGODB_URI` environment variable is defined or if the database is offline, the MongoDB connection fails in **1 second** (configured via short client timeouts).
-2. The server instantly switches to local fallback database files (`src/data/local_db.json`) and populates the store with all **22 pre-seeded gadget products** from `src/lib/seed.ts`.
-3. Checkout submissions, contacts, and orders status updates write directly to the local JSON file database, ensuring **100% functionality** even without MongoDB Atlas!
+## ⚙️ Quick Start
 
----
-
-## ⚙️ Getting Started
-
-### 1. Prerequisites
-Ensure you have **Node.js** (v18+) and **npm** installed on your system:
+### 1. Requirements
+Install Node.js (version 18+) and npm:
 ```bash
 node -v
 npm -v
 ```
 
-### 2. Installation
-Clone the repository and install the dependencies:
+### 2. Setup
+Clone the repository and install all node packages:
 ```bash
 npm install
 ```
 
-### 3. Database Configuration (Optional)
-If you want to use MongoDB Atlas, create a `.env.local` file at the root of the project and provide your connection string:
+### 3. Database Settings (Optional)
+To use MongoDB Atlas, create a `.env.local` file at the root of the project:
 ```env
 MONGODB_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/tryusbd?retryWrites=true&w=majority
 ```
-*Note: If omitted, the application will run in local file-fallback mode automatically.*
+*Note: If omitted, the application will automatically initialize the local JSON file database.*
 
-### 4. Running the Development Server
-Start the local server:
+### 4. Run Development Server
 ```bash
 npm run dev
 ```
-Open [http://localhost:3000](http://localhost:3000) inside your web browser.
+Open [http://localhost:3000](http://localhost:3000) in your web browser.
 
-### 5. Building for Production
-Verify typescript safety and compile the project bundle:
+### 5. Production Build
+Ensure code compilation is warning-free:
 ```bash
 npm run build
 ```
 
 ---
 
-## 🔒 Administrator Authentication
-
-Access the dashboard console at [http://localhost:3000/admin/login](http://localhost:3000/admin/login).
-- **Username**: `admin`
-- **Password**: `admin123`
+## 🔑 Admin Logins
+Log in at [http://localhost:3000/admin/login](http://localhost:3000/admin/login) to access the control panel:
+*   **Username**: `admin`
+*   **Password**: `admin123`
 
 ---
 
-## 📁 Project Structure
-
+## 📁 Directory Architecture
 ```text
-├── legacy-php-version/     # Isolated backup of the old PHP/HTML files
-├── public/                 # Static public assets
+├── legacy-php-version/     # Reference backup of the original PHP site files
+├── public/                 # Favicons and static page assets
 ├── src/
-│   ├── app/                # Next.js App Router Page components
-│   │   ├── api/            # API endpoints (Orders, Stats, Contact, Products)
-│   │   ├── admin/          # Admin pages (Login, Dashboard, Orders, Messages)
-│   │   ├── cart/           # Cart and Checkout flow
-│   │   ├── shop/           # Search and Category catalog
-│   │   ├── wishlist/       # Client wishlist
-│   │   └── globals.css     # Tailwind imports and glassmorphic presets
-│   ├── components/         # Shared components (Navbar, Footer, ProductCard, Modals)
-│   ├── context/            # React AppContext (Cart, Toast contexts)
-│   └── lib/                # MongoDB connections and local JSON database wrappers
-├── package.json
-└── tsconfig.json
+│   ├── app/                # App Router Layouts & Pages
+│   │   ├── api/            # Route Handlers (Products, Orders, Stats, Messages)
+│   │   ├── admin/          # Dashboard controls, orders, login pages
+│   │   ├── cart/           # Shopping cart checkout page
+│   │   ├── shop/           # Catalog views, details modal
+│   │   └── globals.css     # Global styles & tailwind configurations
+│   ├── components/         # Reusable panels (Navbar, Footer, ProductCard, Modals)
+│   ├── context/            # Shared state providers (Cart, Toasts, Theme Context)
+│   └── lib/                # MongoDB Client & Local Db adapter
 ```
 
 ---
 
-## 👨‍💻 Author
+## 👨‍💻 Creator
 **Gazi Faizul Islam** — *All Rights Reserved.*
